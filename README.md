@@ -24,6 +24,9 @@ Modify your `group_vars` file if needed:
 global_hosts: local  # host group to use
 virtual_env_path: /home/username/pubnub_directory  # venv target folder
 pypi_repository_url: https://test.pypi.org/simple  # currently only in test.pypi
+pubnub_subscribe_key: # pubnub credentials (preferebly in encrypted vault)
+pubnub_publish_key: # pubnub credentials (preferebly in encrypted vault)
+pubnub_user_id: # pubnub credentials (preferebly in encrypted vault)
 ```
 
 ## Usage
