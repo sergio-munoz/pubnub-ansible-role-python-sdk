@@ -1,0 +1,11 @@
+# Install python, setup venv and pubnub-python-tools.
+#
+# use: ansible-playbook pubnub_mgmt.yml -i inventory -e "@group_vars/local.yml" -t "deploy"
+---
+# playbook for python-role
+- name: "Ansible playbook for pubnub-python-tools management"
+  hosts: "{{ global_hosts }}"
+  connection: local
+
+  roles:
+    - role: python-role  # Run with --tags "deploy"

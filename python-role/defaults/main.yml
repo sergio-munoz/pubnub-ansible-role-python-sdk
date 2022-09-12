@@ -1,0 +1,13 @@
+# defaults file for python-role
+---
+# installed_pip_package.yml
+virtualenv_path: "{{ ansible_env.HOME }}/pubnub/.env"
+pypi_repository_url: https://testing.pypi.org/simple
+requirements_txt:
+
+# pubnub_config.yml
+pubnub_env_key: "{{ ansible_env.HOME }}/pubnub/.env"
+pubnub_subscribe_key:
+pubnub_publish_key:
+pubnub_user_id:
+

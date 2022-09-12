@@ -1,0 +1,14 @@
+- name: Template Pub Sub example
+  ansible.builtin.template:
+    src: templates/sub_pub.py.j2
+    dest: pub_sub.py
+
+- name: Run Pub Sub example
+  script: pub_sub.py
+  args:
+    executable: venv/bin/python
+  register: python_result
+
+- name: Get stdout or stderr from the output
+  debug:
+    var: python_result.stdout

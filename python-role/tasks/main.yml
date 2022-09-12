@@ -1,0 +1,13 @@
+---
+# tasks file for python-role
+- import_tasks: installed_python_macos.yml
+  tags: ['never', 'install', 'install-python-macos', 'deploy']
+
+- import_tasks: installed_pip_package.yml
+  tags: ['never', 'install', 'install-pip', 'deploy']
+
+- import_tasks: pubnub_config.yml
+  tags: ['never', 'config','pubnub-config', 'deploy']
+
+  #- import_tasks: sub_pub_example.yml
+  #tags: ['never', 'example', 'sub-pub', 'deploy']

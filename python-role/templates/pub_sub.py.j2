@@ -1,0 +1,40 @@
+from pnconfig import pubnub
+
+class SubscribeHandler(SubscribeCallback):
+  def status(self, pubnub, event):
+    print("Is there an error? ", event.is_error())
+    print("Status value for category: %s" % event.category)
+    print("Status value for error_data: %s" % event.error_data)
+    print("Status value for error: %s" % event.error)
+    print("Status value for status_code: %s" % event.status_code)
+    print("Status value for operation: %s" % event.operation)
+    print("Status value for tls_enabled: %s" % event.tls_enabled)
+    print("Status value for uuid: %s" % event.uuid)
+    print("Status value for auth_key: %s" % event.auth_key)
+    print("Status value for origin: %s" % event.origin)
+    print("Status value for client_request: %s" % event.client_request)
+    print("Status value for client_response: %s" % event.client_response)
+    print("Status value for original_response: %s" % event.original_response)
+    print("Status value for affected_channels: %s" % event.affected_channels)
+    print("Status value for affected_groups: %s" % event.affected_groups)
+
+  def presence(self, pubnub, presence):
+      pass  # Handle incoming presence data
+
+  def message(self, pubnub, message):
+      pass  # Handle incoming messages
+
+  def signal(self, pubnub, signal):
+      pass # Handle incoming signals
+
+pubnub.add_listener(SubscribeHandler())
+
+def my_publish_callback(envelope, status):
+  if status.is_error():
+    print("Error!")
+  else:
+    print(status)
+
+pubnub.publish().channel('"{{ pub_sub_channel }}"').message('Hello world!').pn_async(my_publish_callback)
+
+pubnub.subscribe().channels('"{{ pub_sub_channel }}"').execute()

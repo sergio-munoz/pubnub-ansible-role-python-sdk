@@ -1,0 +1,6 @@
+---
+# tags: config,pubnub-config
+- name: Template pubnub configuration
+  ansible.builtin.template:
+    src: templates/env.j2
+    dest: "{{ pubnub_env_key }}"

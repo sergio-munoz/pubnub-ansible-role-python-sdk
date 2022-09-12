@@ -1,0 +1,10 @@
+---
+# Sets up virtual environment and requirements.txy
+# tags: install,install-pip
+- name: Install pubnub-python-tools RC from testing pypi repository
+  ansible.builtin.pip:
+    name: pubnub-python-tools
+    virtualenv: "{{ virtualenv_path }}"
+    extra_args: "-i {{ pypi_repository_url }}"
+    state: forcereinstall
+

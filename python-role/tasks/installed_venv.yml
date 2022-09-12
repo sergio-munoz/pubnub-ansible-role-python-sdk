@@ -1,0 +1,6 @@
+---
+# tags: install,install-pip
+- name: Install virtualenv using 'pip'
+  ansible.builtin.pip:
+    name: venv
+    virtualenv: "{{ virtualenv_path }}
